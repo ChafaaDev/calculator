@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital clock</title>
+  </head>
+  <body>
+    <div class="clock-container">
+      <div class="clock">
+        <span id="screen">00:00:00</span>
+      </div>
+    </div>
+    <style>
+      body{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100vh;
+        align-items: center;
+        background-image: url('./Piazza-di-Spagna.jpg');
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow-x: clip;
+        padding: 0;
+        transition: background-image 1s linear;
+      }
+      .clock-container{
+        background-color: hsl(0, 3%, 30%, 0.3);
+        padding: 1em;
+        width: 100vw;
+        text-align: center;
+        backdrop-filter: blur(2px);
+      }
+      .clock{
+        width: 100%;
+        color: #fff;
+        padding: 1em 0;
+        font-size: 5em;
+        font-family:monospace;
+      }
+      .change{
+        background-image: url('./fontana-trevi-roma.jpg');
+      }
+    </style>
+    <script>
+      function launchClock() {
+        const now = new Date();
+        let hours = now.getHours()
+        const meridiem = hours >= 12 ? "pm" : "am";
+        hours = hours % 12 || 12;
+        hours = hours.toString().padStart(2, 0);
+        const minutes = now.getMinutes().toString().padStart(2, 0);
+        const seconds = now.getSeconds().toString().padStart(2, 0);
+        const timeString = `${hours}:${minutes}:${seconds} ${meridiem}`;
+        document.getElementById("screen").textContent = timeString;
+        console.log(timeString);
+      }
+      launchClock();
+      setInterval(launchClock, 1000);
+      setInterval(()=>{
+        document.querySelector('body').classList.toggle('change')
+      }, 10000)
+    </script>
+
+  </body>
+</html>

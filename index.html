@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>
+      Calculator, simple prototype for addition, substraction, division and
+      multiplication
+    </title>
+  </head>
+  <body>
+    <button class="menu" onclick="toggleMenu()">
+      <svg viewBox="0 0 448 512" width="18" title="bars">
+        <path
+          d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+        />
+      </svg>
+    </button>
+    <div class="sideMenu">
+      <label for="theme">Select theme</label>
+      <select name="theme" id="theme">
+        <option value="light">Light theme ☀️</option>
+        <option value="dark">Dark theme 🌙</option>
+      </select>
+      <ul class="nav-links">
+        <li><a href="./clock.html" target="_blank">Digital clock ↗</a></li>
+        <li><a href="./poki.html" target="_blank">Simple pokemon API ↗</a></li>
+      </ul>
+    </div>
+    <div class="calculator">
+      <div class="display">
+        <input type="text" readonly id="screen" placeholder="0" />
+      </div>
+      <div class="keys">
+        <button class="key" onclick='appendToDisplay("7")'>7</button>
+        <button class="key" onclick='appendToDisplay("8")'>8</button>
+        <button class="key" onclick='appendToDisplay("9")'>9</button>
+        <button class="key color" onclick='appendToDisplay("+")'>+</button>
+        <button class="key" onclick='appendToDisplay("4")'>4</button>
+        <button class="key" onclick='appendToDisplay("5")'>5</button>
+        <button class="key" onclick='appendToDisplay("6")'>6</button>
+        <button class="key color" onclick='appendToDisplay("-")'>-</button>
+        <button class="key" onclick='appendToDisplay("1")'>1</button>
+        <button class="key" onclick='appendToDisplay("2")'>2</button>
+        <button class="key" onclick='appendToDisplay("3")'>3</button>
+        <button class="key color" onclick='appendToDisplay("/")'>/</button>
+        <button class="key" onclick="calculate()">=</button>
+        <button class="key" onclick='appendToDisplay("0")'>0</button>
+        <button class="key" onclick='appendToDisplay(".")'>.</button>
+        <button class="key color" onclick='appendToDisplay("*")'>*</button>
+        <button class="key clear" onclick="clearDisplay()">Clear</button>
+      </div>
+    </div>
+  </body>
+</html>
